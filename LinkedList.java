@@ -22,7 +22,7 @@ public class LinkedList {
 		
 		Link cur = first;
 		
-		while(cur==null) {
+		while(cur!=null) {
 			
 			cur.displayDetails();
 			cur=cur.next;
@@ -48,6 +48,36 @@ public class LinkedList {
 		
 	}
 	
+	public Link deleteLink(String name) {
+		
+		Link  cur=first;
+		Link  previous=first;
+		
+		if(cur==null) {
 	
+	      return null;
+		
+	}
+		while(!cur.name.equals(name)) {
+			
+			previous = cur;
+			cur = cur.next;
+			
+			if(cur==null) {
+				
+				return null;
+			}
+			
+		}
+	if(cur==first) {
+		
+		first=first.next;
+		
+	}else {
+		
+		previous.next = cur.next;
+	}
 	
+	return cur;
+}
 }
